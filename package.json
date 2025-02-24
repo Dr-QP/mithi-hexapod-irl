@@ -29,7 +29,7 @@
         "prod:client": "npm run build:client && env NODE_OPTIONS=--openssl-legacy-provider serve -s build",
         "run:server": "node ./src/_ROBOT_SERVER.js",
         "eject": "react-scripts eject",
-        "start": "concurrently \"yarn run:server\" \"yarn dev:client\""
+        "start": "concurrently -n \"server,client\" \"yarn run:server\" \"yarn dev:client\""
     },
     "eslintConfig": {
         "extends": "react-app"
