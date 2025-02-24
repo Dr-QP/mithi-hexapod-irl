@@ -3,6 +3,43 @@
 const controller = "PCA9685"
 const address = "0x41"
 
+const servoConfig_DrQP = {
+    rightMiddle: {
+        alpha: { id: 14 },
+        beta: { id: 16 },
+        gamma: { id: 18 },
+    },
+
+    rightFront: {
+        alpha: { id: 2 },
+        beta: { id: 4 },
+        gamma: { id: 6 },
+    },
+
+    leftFront: {
+        alpha: { id: 1 },
+        beta: { id: 3 },
+        gamma: { id: 5 },
+    },
+
+    leftMiddle: {
+        alpha: { id: 13 },
+        beta: { id: 15 },
+        gamma: { id: 17 },
+    },
+
+    leftBack: {
+        alpha: { id: 7 },
+        beta: { id: 9 },
+        gamma: { id: 11 },
+    },
+
+    rightBack: {
+        alpha: { id: 8 },
+        beta: { id: 10 },
+        gamma: { id: 12 },
+    },
+}
 const servoConfig = {
     rightMiddle: {
         alpha: { controller, pin: 6, address },
@@ -41,4 +78,4 @@ const servoConfig = {
     },
 }
 
-module.exports = { servoConfig }
+module.exports = { servoConfig, servoConfig_DrQP }
