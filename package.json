@@ -3,9 +3,10 @@
     "version": "0.1.0",
     "private": true,
     "dependencies": {
+        "@serialport/bindings-cpp": "^13.0.1",
         "express": "^4.17.1",
         "hexapod-kinematics-library": "0.0.5",
-        "johnny-five": "^2.0.0",
+        "johnny-five": "^2.1.0",
         "plotly.js-gl3d-dist-min": "^1.54.7",
         "react": "^16.13.1",
         "react-dom": "^16.13.1",
@@ -15,6 +16,11 @@
         "react-scripts": "3.4.4",
         "socket.io": "^3.0.5",
         "socket.io-client": "^3.0.5"
+    },
+    "overrides": {
+        "@serialport/bindings": {
+            "@serialport/bindings-cpp": "^13.0.1"
+        }
     },
     "scripts": {
         "dev:client": "react-scripts start",
