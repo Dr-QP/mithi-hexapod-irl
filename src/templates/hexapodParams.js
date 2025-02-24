@@ -1,11 +1,21 @@
 // Previously all 100
+// const DEFAULT_DIMENSIONS_orig = {
+//     front: 400, // x offset for the front and back legs
+//     side: 750, // y offset fo the front and back legs
+//     middle: 650, // x offset for the middle legs
+//     coxia: 300,
+//     femur: 850,
+//     tibia: 1200,
+// }
+
+// Dr.QP Dimensions
 const DEFAULT_DIMENSIONS = {
-    front: 400,
-    side: 750,
-    middle: 650,
-    coxia: 300,
-    femur: 850,
-    tibia: 1200,
+    front: 63.871, // x offset for the front and back legs
+    side:  116.924, // y offset fo the front and back legs
+    middle: 103, // x offset for the middle legs
+    coxia: 53,
+    femur: 66.225,
+    tibia: 120.531,
 }
 
 const DEFAULT_BODY_DIMENSIONS = {
