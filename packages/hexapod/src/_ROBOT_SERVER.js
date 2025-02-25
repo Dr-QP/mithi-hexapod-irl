@@ -36,7 +36,7 @@ class Servo {
         // 0 - is center position 512 on servo
         // negative values are clockwise
         // this.angle = IK_value * this.config.direction;
-        const directed = IK_value * this.config.direction;
+        const directed = (IK_value + this.config.offsetAngle) * this.config.direction;
         this.angle = (directed + 180) / 360;
     }
 
@@ -98,7 +98,7 @@ async function setupRobot()
         const servo = hexapodServos[leg][angle]
         servo.to(newPose)
 
-        pose[leg][angle] = [newPose, servo.angle, servo.position]
+        // pose[leg][angle] = [newPose, servo.angle, servo.position] // FOR LOGGING
         return servo
     }
 
@@ -110,7 +110,7 @@ async function setupRobot()
             servos.push(setServo(pose, leg, "beta"));
             servos.push(setServo(pose, leg, "gamma"));
         }
-        console.log("setting pose: ", pose)
+        // console.log("setting pose: ", pose)
         
         let poseAsyncMsg = rclnodejs.createMessageObject('drqp_interfaces/msg/MultiAsyncPositionCommand');
 
