@@ -3,41 +3,44 @@
 const controller = "PCA9685"
 const address = "0x41"
 
+const kDirect = 1;
+const kInverse = -1;
+
 const servoConfig_DrQP = {
-    rightMiddle: {
-        alpha: { id: 14 },
-        beta: { id: 16 },
-        gamma: { id: 18 },
-    },
-
     rightFront: {
-        alpha: { id: 2 },
-        beta: { id: 4 },
-        gamma: { id: 6 },
+        alpha: { id: 2, direction: kDirect },
+        beta: { id: 4, direction: kDirect },
+        gamma: { id: 6, direction: kDirect },
     },
 
-    leftFront: {
-        alpha: { id: 1 },
-        beta: { id: 3 },
-        gamma: { id: 5 },
-    },
-
-    leftMiddle: {
-        alpha: { id: 13 },
-        beta: { id: 15 },
-        gamma: { id: 17 },
-    },
-
-    leftBack: {
-        alpha: { id: 7 },
-        beta: { id: 9 },
-        gamma: { id: 11 },
+    rightMiddle: {
+        alpha: { id: 14, direction: kDirect },
+        beta: { id: 16, direction: kDirect },
+        gamma: { id: 18, direction: kDirect },
     },
 
     rightBack: {
-        alpha: { id: 8 },
-        beta: { id: 10 },
-        gamma: { id: 12 },
+        alpha: { id: 8, direction: kDirect },
+        beta: { id: 10, direction: kDirect },
+        gamma: { id: 12, direction: kDirect },
+    },
+
+    leftFront: {
+        alpha: { id: 1, direction: kDirect },
+        beta: { id: 3, direction: kInverse },
+        gamma: { id: 5, direction: kInverse },
+    },
+
+    leftMiddle: {
+        alpha: { id: 13, direction: kDirect },
+        beta: { id: 15, direction: kInverse },
+        gamma: { id: 17, direction: kInverse },
+    },
+
+    leftBack: {
+        alpha: { id: 7, direction: kDirect },
+        beta: { id: 9, direction: kInverse },
+        gamma: { id: 11, direction: kInverse },
     },
 }
 const servoConfig = {

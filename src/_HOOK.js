@@ -7,7 +7,7 @@ import {
     CHANNEL_NAME,
 } from "./_VAR_CONFIG"
 
-import transformPose from "./_TRANSFORM"
+// import transformPose from "./_TRANSFORM"
 
 const useSendPose = () => {
     const socketRef = useRef()
@@ -34,7 +34,8 @@ const useSendPose = () => {
             console.log("just right: ", newDeltaDate)
 
             socketRef.current.emit(CHANNEL_NAME, {
-                pose: transformPose(pose),
+                // pose: transformPose(pose),
+                pose,
                 sender: CLIENT_SENDER_NAME,
                 time: currentDate.getTime(),
             })
