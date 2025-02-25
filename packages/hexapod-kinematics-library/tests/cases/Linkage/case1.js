@@ -1,5 +1,5 @@
 const PARAMS = {
-    dimensions: { coxia: 54, femur: 105, tibia: 136 },
+    dimensions: { coxa: 54, femur: 105, tibia: 136 },
     position: "leftBack",
     bodyContactPoint: { x: -41, y: -72, z: 136 },
     pose: { alpha: 0, beta: 0, gamma: 0 },
@@ -13,11 +13,11 @@ const BODY_CONTACT_POINT = {
     id: "4-0",
 }
 
-const COXIA_POINT = {
+const COXA_POINT = {
     x: -79.18,
     y: -110.18,
     z: 136,
-    name: "leftBack-coxiaPoint",
+    name: "leftBack-coxaPoint",
     id: "4-1",
 }
 
@@ -41,7 +41,7 @@ const CASE = {
     params: PARAMS,
     result: {
         bodyContactPoint: BODY_CONTACT_POINT,
-        coxiaPoint: COXIA_POINT,
+        coxaPoint: COXA_POINT,
         femurPoint: FEMUR_POINT,
         footTipPoint: FOOT_TIP_POINT,
     },

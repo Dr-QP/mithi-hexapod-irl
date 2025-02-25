@@ -11,7 +11,7 @@ const DIMENSIONS = {
     front: 100,
     side: 100,
     middle: 100,
-    coxia: 100,
+    coxa: 100,
     femur: 100,
     tibia: 100,
 }

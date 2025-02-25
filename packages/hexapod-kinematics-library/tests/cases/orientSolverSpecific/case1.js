@@ -4,7 +4,7 @@
 // and in that order
 import { POSITION_NAMES_LIST } from "../../../src/constants"
 
-const LEG_DIMENSIONS = { coxia: 54, femur: 145, tibia: 136 }
+const LEG_DIMENSIONS = { coxa: 54, femur: 145, tibia: 136 }
 const BODY_CONTACT_POINTS = [
     { x: 123.0, y: 0.0, z: 0.0 },
     { x: +81.0, y: 102.0, z: 0.0 },

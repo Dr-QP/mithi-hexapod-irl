@@ -5,7 +5,7 @@ const isLower = (point, normal, height, tol = 1) => -dot(normal, point) > height
 
 /* *
 
-   Each leg has four points (footTip, femurPoint, coxiaPoint, bodyContact).
+   Each leg has four points (footTip, femurPoint, coxaPoint, bodyContact).
    If one point of leg is at the same distance as the ground is
    from the hexapod's center of gravity, then this leg is on the ground.
 

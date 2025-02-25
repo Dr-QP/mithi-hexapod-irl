@@ -1,6 +1,6 @@
 const LEG_POINT_TYPES_LIST = [
     "bodyContactPoint",
-    "coxiaPoint",
+    "coxaPoint",
     "femurPoint",
     "footTipPoint",
 ]

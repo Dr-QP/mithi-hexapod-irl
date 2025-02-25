@@ -25,11 +25,8 @@ const useSendPose = () => {
 
             // we shouldn't spam the robot with commands
             if (newDeltaDate < MINIMUM_TIME_BETWEEN_MESSAGES) {
-                console.log("too soon: ", newDeltaDate)
                 return
             }
-
-            console.log("just right: ", newDeltaDate)
 
             socketRef.current.emit(CHANNEL_NAME, {
                 pose,

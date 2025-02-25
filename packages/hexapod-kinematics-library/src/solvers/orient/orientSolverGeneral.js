@@ -24,7 +24,7 @@ We have 18 points total.
 We have a total of 540 combinations
 - get three legs out of six (20 combinations)
     - we have three possible points for each leg,
-        (coxiaPoint, femurPoint, footTip),
+        (coxaPoint, femurPoint, footTip),
         that's 27 (3^3) combinations
     -  27 * 20 is 540
 

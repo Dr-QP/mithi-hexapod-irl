@@ -142,7 +142,7 @@ const simpleTwist = groundLegsNoGravity => {
     }
 
     // at this point, all ground points are of the same type
-    if (["coxiaPoint", "bodyContactPoint"].includes(firstPointType)) {
+    if (["coxaPoint", "bodyContactPoint"].includes(firstPointType)) {
         return 0
     }
 

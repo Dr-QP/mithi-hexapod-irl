@@ -22,7 +22,7 @@ const DIMENSIONS = {
     front: 80,
     side: 115,
     middle: 130,
-    coxia: 85,
+    coxa: 85,
     femur: 130,
     tibia: 170,
 }

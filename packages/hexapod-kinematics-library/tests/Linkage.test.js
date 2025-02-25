@@ -20,12 +20,12 @@ test.each(CASES)("Should Initialize Linkage: %p", thisCase => {
     expect(linkage.name).toBe(params.position + "Leg")
 
     expect(linkage.bodyContactPoint).toBe(allPointsList[0])
-    expect(linkage.coxiaPoint).toBe(allPointsList[1])
+    expect(linkage.coxaPoint).toBe(allPointsList[1])
     expect(linkage.femurPoint).toBe(allPointsList[2])
     expect(linkage.footTipPoint).toBe(allPointsList[3])
 
     expectToBeEqualPoints(linkage.bodyContactPoint, result.bodyContactPoint)
-    expectToBeEqualPoints(linkage.coxiaPoint, result.coxiaPoint)
+    expectToBeEqualPoints(linkage.coxaPoint, result.coxaPoint)
     expectToBeEqualPoints(linkage.femurPoint, result.femurPoint)
     expectToBeEqualPoints(linkage.footTipPoint, result.footTipPoint)
 })

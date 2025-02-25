@@ -21,7 +21,7 @@ const PATH_NAMES = {
 }
 
 const ANGLE_NAMES = ["alpha", "beta", "gamma"]
-const DIMENSION_NAMES = ["front", "side", "middle", "coxia", "femur", "tibia"]
+const DIMENSION_NAMES = ["front", "side", "middle", "coxa", "femur", "tibia"]
 const LEG_NAMES = [
     "leftFront",
     "rightFront",
@@ -85,7 +85,7 @@ const GAIT_RANGE_PARAMS = {
     hipStance: { minVal: 0, maxVal: 40, stepVal: 1, defaultVal: 20 },
     hipSwing: { minVal: 10, maxVal: 40, stepVal: 1, defaultVal: 25 },
     liftSwing: { minVal: 10, maxVal: 70, stepVal: 1, defaultVal: 40 },
-    stepCount: { minVal: 3, maxVal: 7, stepVal: 1, defaultVal: 5 },
+    stepCount: { minVal: 3, maxVal: 15, stepVal: 1, defaultVal: 5 },
 }
 /*************
  * ICONS

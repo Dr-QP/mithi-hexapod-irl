@@ -1,6 +1,6 @@
 const case1 = {
     params: {
-        coxia: 25,
+        coxa: 25,
         femur: 31,
         tibia: 55,
         summa: 50,
@@ -17,7 +17,7 @@ const case1 = {
 
 const case2 = {
     params: {
-        coxia: 20,
+        coxa: 20,
         femur: 35,
         tibia: 67,
         summa: 60,
@@ -34,7 +34,7 @@ const case2 = {
 
 const case3 = {
     params: {
-        coxia: 32,
+        coxa: 32,
         femur: 40,
         tibia: 57,
         summa: 70,
@@ -51,7 +51,7 @@ const case3 = {
 
 const case4 = {
     params: {
-        coxia: 34,
+        coxa: 34,
         femur: 30,
         tibia: 56,
         summa: 86,

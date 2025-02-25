@@ -68,7 +68,7 @@ For each leg:
     1. Derive a few properties about the leg given what you already know
        which you'd later (see computeInitialProperties() for details )
 
-       This includes the coxiaPoint. If this coxiaPoint is below the ground
+       This includes the coxaPoint. If this coxaPoint is below the ground
         - then there is no solution. Early exit.
 
     2. Compute the alpha of this leg. see (computeAlpha())
@@ -106,7 +106,7 @@ class IKSolver {
             return this
         }
 
-        const { coxia, femur, tibia } = legDimensions
+        const { coxa, femur, tibia } = legDimensions
 
         for (let i = 0; i < NUMBER_OF_LEGS; i++) {
             const legPosition = POSITION_NAMES_LIST[i]
@@ -116,8 +116,8 @@ class IKSolver {
                 bodyContactPoints[i], groundContactPoints[i], axes.zAxis
             )
 
-            if (known.coxiaPoint.z < 0) {
-                this._handleBadPoint(known.coxiaPoint)
+            if (known.coxaPoint.z < 0) {
+                this._handleBadPoint(known.coxaPoint)
                 return this
             }
 
@@ -125,7 +125,7 @@ class IKSolver {
 
             // prettier-ignore
             let alpha = computeAlpha(
-                known.coxiaUnitVector, legXaxisAngle, axes.xAxis, axes.zAxis
+                known.coxaUnitVector, legXaxisAngle, axes.xAxis, axes.zAxis
             )
 
             if (Math.abs(alpha) > MAX_ANGLES.alpha) {
@@ -138,7 +138,7 @@ class IKSolver {
 
             // prettier-ignore
             const solvedLegParams = new LinkageIKSolver(legPosition)
-                .solve(coxia, femur, tibia, known.summa, known.rho)
+                .solve(coxa, femur, tibia, known.summa, known.rho)
 
             if (!solvedLegParams.obtainedSolution) {
                 this._finalizeFailure(IKMessage.badLeg(solvedLegParams.message))
@@ -220,16 +220,16 @@ Given:
 
 1. pB : bodyContactPoint in 3d space
 2. pG : groundContactPoint in 3d space
-3. coxia: distance from pB to pC
+3. coxa: distance from pB to pC
 4. zAxis: The vector normal to the hexapodBodyPlane
 
 .......
 Find:
 .......
 
-1. pC : coxiaPoint in 3d space
-2. coxiaVector: the vector from pB to Pc with a length of one
-3. coxiaUnitVector: A vector with the length of one
+1. pC : coxaPoint in 3d space
+2. coxaVector: the vector from pB to Pc with a length of one
+3. coxaUnitVector: A vector with the length of one
     pointing at the direction of the unit vector
 4. rho: The angle made by pC, pB and pG, with pB at the center
 5. summa: The distance from pB to pG
@@ -247,9 +247,9 @@ Idea:
 .......
 
 1. Get the vector from pB to pG (bodyToFootVector)
-2. Project that vector to the hexapodBodyPlane (coxiaDirectionVector)
+2. Project that vector to the hexapodBodyPlane (coxaDirectionVector)
    The direction of this vector is the direction of
-   coxiaVector and coxiaUnitVector
+   coxaVector and coxaUnitVector
 
    And with a little bit of geometry you derive verything you need.
 
@@ -258,23 +258,23 @@ const computeInitialLegProperties = (
     bodyContactPoint,
     groundContactPoint,
     zAxis,
-    coxia
+    coxa
 ) => {
     const bodyToFootVector = vectorFromTo(bodyContactPoint, groundContactPoint)
 
-    const coxiaDirectionVector = projectedVectorOntoPlane(bodyToFootVector, zAxis)
-    const coxiaUnitVector = getUnitVector(coxiaDirectionVector)
-    const coxiaVector = scaleVector(coxiaUnitVector, coxia)
+    const coxaDirectionVector = projectedVectorOntoPlane(bodyToFootVector, zAxis)
+    const coxaUnitVector = getUnitVector(coxaDirectionVector)
+    const coxaVector = scaleVector(coxaUnitVector, coxa)
 
-    const coxiaPoint = addVectors(bodyContactPoint, coxiaVector)
+    const coxaPoint = addVectors(bodyContactPoint, coxaVector)
 
-    const rho = angleBetween(coxiaUnitVector, bodyToFootVector)
+    const rho = angleBetween(coxaUnitVector, bodyToFootVector)
     const summa = vectorLength(bodyToFootVector)
 
     return {
-        coxiaUnitVector,
-        coxiaVector,
-        coxiaPoint,
+        coxaUnitVector,
+        coxaVector,
+        coxaPoint,
         rho,
         summa,
     }
@@ -295,7 +295,7 @@ hexapodZaxis (zAxis)
 Example #1 :
 ...............
 
-             coxiaVector
+             coxaVector
               ^
               | legXaxis
               |  /        * legXaxisAngle
@@ -303,7 +303,7 @@ Example #1 :
     * -- * -- *                (in this example: +45 degrees )
    /           \
   /             \          * Alpha
- *       *       *            - Angle between legXaxis and coxiaVector
+ *       *       *            - Angle between legXaxis and coxaVector
   \             /                (in this example: +45 degrees)
    \           /
     * -- * -- *
@@ -323,11 +323,11 @@ Example #2
               | \
               | legXaxis
               V
-              coxiaVector
+              coxaVector
  * * */
-const computeAlpha = (coxiaVector, legXaxisAngle, xAxis, zAxis) => {
-    const sign = isCounterClockwise(coxiaVector, xAxis, zAxis) ? -1 : 1
-    const alphaWrtHexapod = sign * angleBetween(coxiaVector, xAxis)
+const computeAlpha = (coxaVector, legXaxisAngle, xAxis, zAxis) => {
+    const sign = isCounterClockwise(coxaVector, xAxis, zAxis) ? -1 : 1
+    const alphaWrtHexapod = sign * angleBetween(coxaVector, xAxis)
     const alpha = (alphaWrtHexapod - legXaxisAngle) % 360
 
     if (alpha > 180) {

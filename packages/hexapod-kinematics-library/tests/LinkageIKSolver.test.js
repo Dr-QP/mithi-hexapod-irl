@@ -20,11 +20,11 @@ Edge cases, When triangle can't form: (reachedTarget: true)
 test.each(CAN_REACH_TARGET_CASES)(
     "Leg IK Solver when it is not an edge case %p",
     thisCase => {
-        const { coxia, femur, tibia, summa, rho } = thisCase.params
+        const { coxa, femur, tibia, summa, rho } = thisCase.params
 
         // prettier-ignore
         const solved = new LinkageIKSolver("NoPositionSpecified").solve(
-            coxia, femur, tibia, summa, rho
+            coxa, femur, tibia, summa, rho
         )
 
         expect(solved.beta).toBeCloseTo(thisCase.result.beta)

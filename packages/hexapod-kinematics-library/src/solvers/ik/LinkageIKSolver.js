@@ -9,7 +9,7 @@ ALIASES:
            p2x'
            /
           /          GIVEN:
-         * p2         * (coxia) distance from p0 to p1
+         * p2         * (coxa) distance from p0 to p1
         /|            * (femur) distance from p1 to p2
        / |            * (tibia) distance from p2 to p3
 p0  p1/  |            * (summa) distance from p0 to p3
@@ -64,11 +64,11 @@ class LinkageIKSolver {
     }
     points = {
         bodyContactPoint: null,
-        coxiaPoint: null,
+        coxaPoint: null,
         targetFootTipPoint: null,
     }
     dimensions = {
-        coxia: 0,
+        coxa: 0,
         femur: 0,
         tibia: 0,
         summa: 0,
@@ -84,17 +84,17 @@ class LinkageIKSolver {
         this.info = LegIKInfo.initialized(legPosition)
     }
 
-    solve(coxia, femur, tibia, summa, rho) {
+    solve(coxa, femur, tibia, summa, rho) {
         this.angles.rho = rho
-        this.dimensions = { coxia, femur, tibia, summa }
-        const coxiaPoint = new Vector(coxia, 0, 0, "coxiaPoint")
+        this.dimensions = { coxa, femur, tibia, summa }
+        const coxaPoint = new Vector(coxa, 0, 0, "coxaPoint")
         const targetFootTipPoint = this._computeTargetFootTipPoint()
 
-        const parsVector = vectorFromTo(coxiaPoint, targetFootTipPoint)
+        const parsVector = vectorFromTo(coxaPoint, targetFootTipPoint)
         const pars = vectorLength(parsVector)
 
         this.dimensions.pars = pars
-        this.points = { ...this.points, coxiaPoint, targetFootTipPoint }
+        this.points = { ...this.points, coxaPoint, targetFootTipPoint }
         this.vectors = { ...this.vectors, parsVector }
 
         isTriangle(pars, femur, tibia)

@@ -66,7 +66,7 @@ Property types:
 ##: number
 "": string
 
-{} this.dimensions: {front, side, middle, coxia, femur, tibia}
+{} this.dimensions: {front, side, middle, coxa, femur, tibia}
 
 {} this.pose: A hash mapping the position name to a hash map of three angles
     which define the pose of the hexapod
@@ -103,7 +103,7 @@ Property types:
 ....................
 
 {} this.bodyDimensions: { front, side, middle }
-{} this.legDimensions: { coxia, femur, tibia }
+{} this.legDimensions: { coxa, femur, tibia }
 
 ## this.distanceFromGround: A number which is the perpendicular distance
     from the hexapod's center of gravity to the ground plane
@@ -236,8 +236,8 @@ class VirtualHexapod {
     }
 
     get legDimensions() {
-        const { coxia, femur, tibia } = this.dimensions
-        return { coxia, femur, tibia }
+        const { coxa, femur, tibia } = this.dimensions
+        return { coxa, femur, tibia }
     }
 
     get groundContactPoints() {

@@ -5,10 +5,10 @@
 
      p0 *----* p1
               \       * p0 = origin / bodyContactPoint
-               * p2   * p1 = coxiaPoint
+               * p2   * p1 = coxaPoint
                |      * p2 = femurPoint
                * p3   * p3 = tibiaPoint / footTipPoint
-                      * coxiaVector = vector from p0 to p1
+                      * coxaVector = vector from p0 to p1
      localZ           * femurVector = vector from p1 to p2
      |  localY        * tibiaVector = vector from p2 to p3
      | /
@@ -31,8 +31,8 @@
                                 * hexapodZ
 
                      * localXaxisAngle = angle made by hexapodXaxis and localXaxis
-                     * alpha = angle made by coxia Vector and localXaxis
-             p2      * beta = angle made by coxiaVector and femurVector
+                     * alpha = angle made by coxa Vector and localXaxis
+             p2      * beta = angle made by coxaVector and femurVector
              *              = angle made by points p2, p1 and pxPrime
             / \
        *---*---\---> pxPrime
@@ -40,7 +40,7 @@
 
 
       p0   p1         * gamma = angle made by vector perpendicular to
-       *---*                    coxiaVector and tibiaVector
+       *---*                    coxaVector and tibiaVector
            | \                = angle made by points pzPrime, p1, p3
            |  \
            V   * p3
@@ -50,7 +50,7 @@
    LINKAGE PROPERTIES
   ..................
 
-  {} this.dimensions: { coxia, femur, tibia }
+  {} this.dimensions: { coxa, femur, tibia }
   {} this.pose: { alpha, beta, gamma }
   "" this.position: "rightMiddle" from POSITION_NAMES_LIST or "linkage-position-not-defined"
 
@@ -59,7 +59,7 @@
 
       [
           {x, y, z, id: "5-0", name: "rightBack-bodyContactPoint"},
-          {x, y, z, id: "5-1", name: "rightBack-coxiaPoint"},
+          {x, y, z, id: "5-1", name: "rightBack-coxaPoint"},
           {x, y, z, id: "5-2", name: "rightBack-femurPoint"},
           {x, y, z, id: "5-3", name: "rightBack-footTipPoint"},
       ]
@@ -105,7 +105,7 @@ class Linkage {
         return this.allPointsList[0]
     }
 
-    get coxiaPoint() {
+    get coxaPoint() {
         return this.allPointsList[1]
     }
 
@@ -191,7 +191,7 @@ class Linkage {
      *
      * pointNameIds = [
      *   { name: "{legPosition}-bodyContactPoint", id: "{legId}-0" },
-     *   { name: "{legPosition}-coxiaPoint", id: "{legId}-1" },
+     *   { name: "{legPosition}-coxaPoint", id: "{legId}-1" },
      *   { name: "{legPosition}-femurPoint", id: "{legId}-2" },
      *   { name: "{legPosition}-footTipPoint", id: "{legId}-3" },
      * ]
@@ -222,7 +222,7 @@ class Linkage {
      *
      * */
     _computePointsWrtBodyContact(beta, gamma) {
-        const matrix01 = tRotYmatrix(-beta, this.dimensions.coxia, 0, 0)
+        const matrix01 = tRotYmatrix(-beta, this.dimensions.coxa, 0, 0)
         const matrix12 = tRotYmatrix(90 - gamma, this.dimensions.femur, 0, 0)
         const matrix23 = tRotYmatrix(0, this.dimensions.tibia, 0, 0)
         const matrix02 = multiply4x4(matrix01, matrix12)
@@ -232,7 +232,7 @@ class Linkage {
 
         const localPoints = [
             originPoint, // bodyContactPoint
-            originPoint.cloneTrot(matrix01), // coxiaPoint
+            originPoint.cloneTrot(matrix01), // coxaPoint
             originPoint.cloneTrot(matrix02), // femurPoint
             originPoint.cloneTrot(matrix03), // footTipPoint
         ]
@@ -269,7 +269,7 @@ class Linkage {
     /* *
      *  Example of allPointsList =  [
      *     {x, y, z, id: "5-0", name: "rightBack-bodyContactPoint"},
-     *     {x, y, z, id: "5-1", name: "rightBack-coxiaPoint"},
+     *     {x, y, z, id: "5-1", name: "rightBack-coxaPoint"},
      *     {x, y, z, id: "5-2", name: "rightBack-femurPoint"},
      *     {x, y, z, id: "5-3", name: "rightBack-footTipPoint"},
      * ]

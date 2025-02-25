@@ -1,6 +1,6 @@
 import { POSITION_NAMES_LIST, NUMBER_OF_LEGS } from "../../../src/constants"
 
-const LEG_DIMENSIONS = { coxia: 73, femur: 122, tibia: 91 }
+const LEG_DIMENSIONS = { coxa: 73, femur: 122, tibia: 91 }
 
 const LEG_POSE = {
     alpha: 30,
