@@ -118,7 +118,7 @@ async function setupRobot()
             poseAsyncMsg.positions.push({
                 id: servo.id,
                 position: servo.position,
-                playtime: 10,
+                playtime: 5,
             });
         }
         publisher.publish(poseAsyncMsg);

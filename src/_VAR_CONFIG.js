@@ -10,7 +10,7 @@ const SOCKET_CLIENT_URLS = ["http://localhost:3000", "http://127.0.0.1:3000"]
 
 // we don't want to spam too many commands to our robot
 // (in milliseconds)
-const MINIMUM_TIME_BETWEEN_MESSAGES = 20
+const MINIMUM_TIME_BETWEEN_MESSAGES = 50
 
 // the client app should send its name to the server
 // so that the server knows immediately where the command is coming from
